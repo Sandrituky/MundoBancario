@@ -2,6 +2,7 @@ package es.eoi.mundobancario.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -34,7 +35,7 @@ public class TipoMovimiento {
 	
 	
 	//MOVIMIENTO TIENE CLAVE FORANEA DE TIPOS_MOVIMIENTO
-	@OneToMany(mappedBy = "tipoMov")
+	@OneToMany(mappedBy = "tipoMov", cascade = CascadeType.ALL)
     private List<Movimiento> movimientos;
 
 }

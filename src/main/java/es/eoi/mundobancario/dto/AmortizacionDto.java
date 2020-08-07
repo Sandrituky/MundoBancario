@@ -26,7 +26,9 @@ public class AmortizacionDto {
 	
 	private double importe;
 	
+	private String pagado;
+	
 	// CLAVE FORANEA A TABLA PRESTAMOS, 1-N
-	private PrestamoDto prestamo;
+	//private PrestamoDto prestamo;
 
 }

@@ -24,7 +24,7 @@ public class TipoMovimientoServiceImpl implements TipoMovimientoService {
 	DtoUtils dtoUtils;
 	
 	
-	public List<DtoEntity> findAllDto() {
+	public List<DtoEntity> findAll() {
 
 		List<TipoMovimiento> tiposMovimiento = repository.findAll();
 		List<DtoEntity> tiposMovimientoDto = new ArrayList();
@@ -39,13 +39,11 @@ public class TipoMovimientoServiceImpl implements TipoMovimientoService {
 		
 	}
 	
-	public List<TipoMovimiento> findAll() {
+	
+	
+	
+	
 
-		List<TipoMovimiento> tiposMovimiento = repository.findAll();
-
-		return tiposMovimiento;
-		
-	}
 	
 	
 }

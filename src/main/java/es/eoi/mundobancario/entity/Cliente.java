@@ -2,6 +2,7 @@ package es.eoi.mundobancario.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Cliente {
 	private String email;
 	
 	//Cuenta TIENE CLAVE FORANEA DE Cliente
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Cuenta> cuentas;
 	
 	public static boolean checkEmail(String email) {

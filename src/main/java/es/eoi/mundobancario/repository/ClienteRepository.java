@@ -27,6 +27,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	public Cliente findByUsuario(String usuario);
 	
+	public Cliente findByUsuarioAndPass(String usuario, String pass);
+	
 	
 	
 	

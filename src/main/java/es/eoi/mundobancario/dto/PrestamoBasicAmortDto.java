@@ -19,7 +19,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PrestamoDto implements DtoEntity{
+public class PrestamoBasicAmortDto implements DtoEntity{
 	
 	//private int id;
 	
@@ -34,7 +34,7 @@ public class PrestamoDto implements DtoEntity{
 	private String pagado;
 	
 	// CLAVE FORANEA A TABLA CUENTA, 1-N
-	private CuentaDto cuenta;
+	//private CuentaDto cuenta;
 	
 	//AMORTIZACIONES TIENE CLAVE FORANEA DE PRESTAMOS
     private List<AmortizacionDto> amortizaciones;

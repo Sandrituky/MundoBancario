@@ -15,19 +15,20 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteUpdateEmailDto implements DtoEntity {
+public class ClienteCuentasMovDto implements DtoEntity {
+	
 	
 	private int id;
 	
-	//private String usuario;
+	private String usuario;
 	
 	//private String pass;
 	
-	//private String nombre;
+	private String nombre;
 	
 	private String email;
 	
 	//Cuenta TIENE CLAVE FORANEA DE Cliente
-    //private List<CuentaDto> cuentas;
+    private List<CuentaMovsDto> cuentas;
 
 }

@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 public class CuentaDto implements DtoEntity {
 	
-	private int num_cuenta;
+	private int numCuenta;
 	
 	private String alias;
 	
@@ -28,11 +28,11 @@ public class CuentaDto implements DtoEntity {
 	
 	
 	// CLAVE FORANEA A TABLA CLIENTE, 1-N
-	private ClienteDto cliente;
+	private ClienteBasicDto cliente;
 	
 	
 	//PRESTAMO TIENE CLAVE FORANEA DE CUENTA
-    private List<PrestamoDto> prestamos;
+    private List<PrestamoBasicDto> prestamos;
 	
 	//MOVIMIENTO TIENE CLAVE FORANEA DE CUENTA
     private List<MovimientoDto> movimientos;

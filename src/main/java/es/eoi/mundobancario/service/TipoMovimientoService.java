@@ -8,8 +8,8 @@ import es.eoi.mundobancario.entity.TipoMovimiento;
 public interface TipoMovimientoService {
 
 	
-	List<DtoEntity> findAllDto();
-	List<TipoMovimiento> findAll();
+	List<DtoEntity> findAll();
+
 	
 	
 }

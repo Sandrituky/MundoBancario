@@ -24,15 +24,11 @@ public class PruebasController {
 	
 	
 	
-	@GetMapping("tiposmovdto")	
-	public ResponseEntity <List <DtoEntity> > findAllDto() {
-		return ResponseEntity.ok(serviceTipoMov.findAllDto());
-	}
-	
 	@GetMapping("tiposmov")	
-	public ResponseEntity <List <TipoMovimiento> > findAll() {
+	public ResponseEntity <List <DtoEntity> > findAll() {
 		return ResponseEntity.ok(serviceTipoMov.findAll());
 	}
+	
 	
 	@GetMapping("movimientos")	
 	public ResponseEntity <List <DtoEntity> > findAllMovs() {

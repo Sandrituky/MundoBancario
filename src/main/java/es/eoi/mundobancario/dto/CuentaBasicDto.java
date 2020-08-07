@@ -18,9 +18,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CuentaBasicDto {
+public class CuentaBasicDto implements DtoEntity  {
 	
-	private int num_cuenta;
+	private int numCuenta;
 	
 	private String alias;
 	

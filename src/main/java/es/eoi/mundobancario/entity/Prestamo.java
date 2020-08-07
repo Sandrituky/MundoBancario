@@ -3,8 +3,11 @@ package es.eoi.mundobancario.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +17,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
+import es.eoi.mundobancario.enums.Pagado;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,13 +45,18 @@ public class Prestamo {
 	@Column
 	private int plazos;
 	
+	@Column(name = "PAGADO")
+	@Enumerated(EnumType.STRING)
+	private Pagado pagado = Pagado.Pendiente;
+	
+	
 	// CLAVE FORANEA A TABLA CUENTA, 1-N
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_CUENTA")
 	private Cuenta cuenta;
 	
 	//AMORTIZACIONES TIENE CLAVE FORANEA DE PRESTAMOS
-	@OneToMany(mappedBy = "prestamo")
+	@OneToMany(mappedBy = "prestamo", cascade = CascadeType.ALL)
     private List<Amortizacion> amortizaciones;
 	
 	

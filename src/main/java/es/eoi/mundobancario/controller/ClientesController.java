@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import es.eoi.mundobancario.dto.ClienteBasicDto;
 import es.eoi.mundobancario.dto.ClienteCreateDto;
 import es.eoi.mundobancario.dto.ClienteLoginDto;
-import es.eoi.mundobancario.dto.ClienteUpdateEmailDto;
+
 import es.eoi.mundobancario.dto.DtoEntity;
+import es.eoi.mundobancario.entity.Cliente;
 import es.eoi.mundobancario.service.ClienteService;
 
 @RestController
@@ -37,6 +38,7 @@ public class ClientesController {
 		}
 	}
 
+	
 	//Devuelve el cliente solicitado (información básica sin la contraseña).
 	@GetMapping("clientes/{id}")	
 	public ResponseEntity<DtoEntity> findClienteById(@PathVariable Integer id) {
@@ -48,8 +50,20 @@ public class ClientesController {
 	}	
 	
 	
-	
-
+	//Devuelve el cliente solicitado (información básica sin contraseña)
+	@PostMapping("clientes/login")
+	public ResponseEntity<DtoEntity> login(@RequestBody ClienteLoginDto clienteDto) {
+		try {
+			if(service.isPasswordCorrect(clienteDto.getUsuario(), clienteDto.getPass())) {
+				return ResponseEntity.ok(service.login(clienteDto.getUsuario(), clienteDto.getPass()));
+			}else{
+				return new ResponseEntity<DtoEntity>(HttpStatus.NOT_FOUND);
+			}
+			
+		} catch (Exception e) {
+			return new ResponseEntity<DtoEntity>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	
 	
@@ -66,11 +80,22 @@ public class ClientesController {
 	
 
 	
-	//Modifica el campo email del cliente solicitado
+	// Modifica el campo email del cliente solicitado
 	@PutMapping("clientes/{id}")
-	public ResponseEntity<String> updateClienteEmail(@PathVariable Integer id, @RequestBody ClienteUpdateEmailDto clienteDto) {
-		service.updateClienteEmail(clienteDto.getEmail(), id);
-		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
+	public ResponseEntity<String> updateClienteEmail(@PathVariable Integer id,
+			@RequestBody ClienteBasicDto clienteDto) {
+
+		try {
+
+			if (service.updateClienteEmail(clienteDto.getEmail(), id)) {
+				return new ResponseEntity<String>(HttpStatus.ACCEPTED);
+			} else {
+				return new ResponseEntity<String>(HttpStatus.NOT_MODIFIED);
+			}
+
+		} catch (Exception e) {
+			return new ResponseEntity<String>(HttpStatus.NOT_MODIFIED);
+		}
 
 	}
 	
@@ -78,8 +103,12 @@ public class ClientesController {
 	@PostMapping("clientes")
 	public ResponseEntity<String> addCliente(@RequestBody ClienteCreateDto clienteDto) {
 			try {
-				service.addCliente(clienteDto);
-				return new ResponseEntity<String>(HttpStatus.CREATED);
+				if(service.addCliente(clienteDto)) {
+					return new ResponseEntity<String>(HttpStatus.CREATED);
+				}else {
+					return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+				}
+				
 			} catch (Exception e) {
 				return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 			}

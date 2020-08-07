@@ -18,12 +18,8 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Integer>
 		public List <Movimiento> findAll();
 		
 		
-		
-		
 
-		
-		@Query(value="SELECT MOV.* FROM CUENTAS CUE INNER JOIN MOVIMIENTOS MOV ON MOV.ID_CUENTA = CUE.NUM_CUENTA WHERE MOV.ID_TIPO=?1", nativeQuery = true)
-		public List <Movimiento> findByCuentaId(int id);
+		public List <Movimiento> findByCuentaNumCuenta(int id);
 		
 		
 	

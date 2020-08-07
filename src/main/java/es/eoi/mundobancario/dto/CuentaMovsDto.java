@@ -1,8 +1,7 @@
-package es.eoi.mundobancario.entity;
+package es.eoi.mundobancario.dto;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,36 +18,24 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Table(name = "CUENTAS")
-@Entity
-public class Cuenta {
+public class CuentaMovsDto implements DtoEntity {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "NUM_CUENTA")
 	private int numCuenta;
 	
-	@Column
 	private String alias;
 	
-	
-	@Column(columnDefinition = "double default 0")
 	private double saldo;
 	
 	
 	// CLAVE FORANEA A TABLA CLIENTE, 1-N
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="ID_CLIENTE")
-	private Cliente cliente;
+	private ClienteBasicDto cliente;
 	
 	
 	//PRESTAMO TIENE CLAVE FORANEA DE CUENTA
-	@OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL)
-    private List<Prestamo> prestamos;
+    //private List<PrestamoBasicDto> prestamos;
 	
 	//MOVIMIENTO TIENE CLAVE FORANEA DE CUENTA
-	@OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL)
-    private List<Movimiento> movimientos;
+    private List<MovimientoDto> movimientos;
 	
 	
 
