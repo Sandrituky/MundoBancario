@@ -2,7 +2,7 @@ package es.eoi.mundobancario.dto;
 
 import javax.persistence.Convert;
 
-import edu.es.eoi.converter.TipoMovEnumConverter;
+import es.eoi.mundobancario.converter.TipoMovEnumConverter;
 import es.eoi.mundobancario.enums.TipoMov;
 import lombok.Getter;
 import lombok.Setter;

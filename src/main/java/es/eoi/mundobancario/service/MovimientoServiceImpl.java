@@ -23,7 +23,7 @@ import es.eoi.mundobancario.entity.Movimiento;
 import es.eoi.mundobancario.repository.CuentaRepository;
 import es.eoi.mundobancario.repository.MovimientoRepository;
 import es.eoi.mundobancario.repository.TipoMovimientoRepository;
-import es.eoi.utils.DtoUtils;
+import es.eoi.mundobancario.utils.DtoUtils;
 
 @Service
 public class MovimientoServiceImpl implements MovimientoService {

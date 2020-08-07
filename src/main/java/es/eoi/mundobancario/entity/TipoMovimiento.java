@@ -12,8 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-import edu.es.eoi.converter.TipoMovEnumConverter;
+import es.eoi.mundobancario.converter.TipoMovEnumConverter;
 import es.eoi.mundobancario.enums.TipoMov;
 import lombok.Getter;
 import lombok.Setter;

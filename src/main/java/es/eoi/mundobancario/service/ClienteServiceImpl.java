@@ -33,7 +33,7 @@ import es.eoi.mundobancario.entity.Cliente;
 import es.eoi.mundobancario.entity.Cuenta;
 import es.eoi.mundobancario.enums.TipoMov;
 import es.eoi.mundobancario.repository.ClienteRepository;
-import es.eoi.utils.DtoUtils;
+import es.eoi.mundobancario.utils.DtoUtils;
 
 
 @Service

@@ -19,7 +19,7 @@ import es.eoi.mundobancario.entity.Movimiento;
 import es.eoi.mundobancario.entity.TipoMovimiento;
 import es.eoi.mundobancario.enums.TipoMov;
 import es.eoi.mundobancario.repository.CuentaRepository;
-import es.eoi.utils.DtoUtils;
+import es.eoi.mundobancario.utils.DtoUtils;
 
 @Service
 public class CuentaServiceImpl implements CuentaService{

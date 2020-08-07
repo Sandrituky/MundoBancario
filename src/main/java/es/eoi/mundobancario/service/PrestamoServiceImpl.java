@@ -32,7 +32,7 @@ import es.eoi.mundobancario.repository.CuentaRepository;
 import es.eoi.mundobancario.repository.MovimientoRepository;
 import es.eoi.mundobancario.repository.PrestamoRepository;
 import es.eoi.mundobancario.repository.TipoMovimientoRepository;
-import es.eoi.utils.DtoUtils;
+import es.eoi.mundobancario.utils.DtoUtils;
 
 @Service
 public class PrestamoServiceImpl implements PrestamoService {

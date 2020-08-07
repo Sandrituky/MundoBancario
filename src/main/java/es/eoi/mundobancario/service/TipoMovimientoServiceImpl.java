@@ -12,7 +12,7 @@ import es.eoi.mundobancario.dto.DtoEntity;
 import es.eoi.mundobancario.entity.Cliente;
 import es.eoi.mundobancario.entity.TipoMovimiento;
 import es.eoi.mundobancario.repository.TipoMovimientoRepository;
-import es.eoi.utils.DtoUtils;
+import es.eoi.mundobancario.utils.DtoUtils;
 
 @Service
 public class TipoMovimientoServiceImpl implements TipoMovimientoService {

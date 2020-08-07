@@ -1,4 +1,4 @@
-package es.eoi.utils;
+package es.eoi.mundobancario.utils;
 
 import org.modelmapper.ModelMapper;
 

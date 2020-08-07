@@ -1,4 +1,4 @@
-package edu.es.eoi.converter;
+package es.eoi.mundobancario.converter;
 
 import java.sql.Date;
 import java.time.LocalDate;
